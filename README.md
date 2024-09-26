@@ -1,1 +1,1 @@
-# Wagon Savings a financial app to become millionaire
+# Wagon Savings a Financial app to become millionaire
