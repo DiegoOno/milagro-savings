@@ -1,10 +1,10 @@
 # Speedwagon Savings: A Financial app to become millionaire
 
-A **Personal Finance Management App** is a tool designed to help users manage their finances by tracking expenses, income, budgets, and savings goals.
+This project is a tool designed to help users manage their finances by tracking expenses, income, budgets, and savings goals.
 
 ### **Project Overview:**
 
-The Personal Finance Management App will allow users to:
+The App will allow users to:
 
 - Track income and expenses by categories (e.g., food, rent, entertainment).
 - Set monthly budgets and get alerts when they are close to exceeding them.
