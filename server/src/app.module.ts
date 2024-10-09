@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,9 +22,14 @@ import { UserModule } from './user/user.module';
         database: configService.get('DB_NAME'),
         entities: [join(process.cwd(), 'dist/**/*.entity{.ts,.js}')],
         synchronize: configService.get('ENV') === 'development',
+        migrationsTableName: 'typeorm_migrations',
+        migrationsRun: false,
+        migrations: [join(process.cwd(), 'dist/migrations/*{.ts,.js}')],
+        logging: true,
       }),
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
