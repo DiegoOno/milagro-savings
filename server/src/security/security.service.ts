@@ -18,7 +18,10 @@ export class SecurityService {
 
   async generateToken(): Promise<{ accessToken: string; expiresIn: number }> {
     const expiresIn = 3600;
-    const token = await this.jwtService.sign({}, { expiresIn });
+    const token = this.jwtService.sign(
+      {},
+      { expiresIn, secret: process.env.AUTH_SECRET },
+    );
 
     return { accessToken: token, expiresIn };
   }
