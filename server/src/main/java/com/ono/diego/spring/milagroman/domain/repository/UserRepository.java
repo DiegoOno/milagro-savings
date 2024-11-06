@@ -1,4 +1,7 @@
 package com.ono.diego.spring.milagroman.domain.repository;
 
-public class UserRepository {
+import com.ono.diego.spring.milagroman.domain.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 }
