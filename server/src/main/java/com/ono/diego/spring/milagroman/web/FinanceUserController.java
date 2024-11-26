@@ -45,15 +45,7 @@ public class FinanceUserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createFinanceUser(@Valid @RequestBody FinanceUserDTO financeUserDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errorMessages = bindingResult.getAllErrors()
-                    .stream()
-                    .map(ObjectError::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessages);
-        }
-
+    public ResponseEntity<?> createFinanceUser(@Valid @RequestBody FinanceUserDTO financeUserDTO) {
         try {
             FinanceUser createdFinanceUser = financeUserService.create(FinanceUserDTO.toEntity(financeUserDTO));
             return ResponseEntity.status(HttpStatus.OK).body(FinanceUserDTO.fromEntity(createdFinanceUser));
@@ -64,15 +56,7 @@ public class FinanceUserController {
     }
 
     @PutMapping
-    public ResponseEntity<?> updateFinanceuser(@Valid @RequestBody FinanceUserDTO financeUserDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errorMessages = bindingResult.getAllErrors()
-                    .stream()
-                    .map(ObjectError::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessages);
-        }
-
+    public ResponseEntity<?> updateFinanceuser(@Valid @RequestBody FinanceUserDTO financeUserDTO) {
         try {
             FinanceUser updatedFinanceUser = financeUserService.update(FinanceUserDTO.toEntity(financeUserDTO));
             return ResponseEntity.status(HttpStatus.OK).body(FinanceUserDTO.fromEntity(updatedFinanceUser));
